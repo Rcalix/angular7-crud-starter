@@ -1,0 +1,21 @@
+<table class="table is-hoverable is-fullwidth">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Role</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <th>{{ user.id }}</th>
+      <td>{{ user.email }}</td>
+      <td>{{ user.role }}</td>
+      <td>
+          <button mat-button color="primary" (click)="editUser(user.id)">Edit</button>
+          <button mat-button color="accent" (click)="deleteUser(user.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,14 +1,39 @@
-<nav class="navbar is-link">
-  <!-- logo -->
-  <div class="navbar-brand">
-    <a class="navbar-item">
-      <img src="https://www.laureate.net/~/media/Images/LGG/Logos/footer_liu_190.ashx">
-    </a>
-  </div>
-  <div class="navbar-menu">
-    <div class="navbar-start">
-      <a class="navbar-item" routerLink="">Posts</a>
-      <a class="navbar-item" routerLink="category">Categories</a>
-    </div>
-  </div>
-</nav>
+<!-- <nav class="navbar-dark bg-dark">
+  <ul  class="nav justify-content-end">
+      <li  class="nav-item" *ngIf="userIsAuthenticated">
+        <a class="nav-link"routerLink="list-users" routerLinkActive="mat-accent">Users</a>
+      </li>
+      <li  class="nav-item" *ngIf="userIsAuthenticated">
+          <a class="nav-link" routerLink="" routerLinkActive="mat-accent">Post</a>
+      </li>
+      <li  class="nav-item" *ngIf="userIsAuthenticated">
+        <a class="nav-link" routerLink="" routerLinkActive="mat-accent">Category</a>
+    </li>
+    <li  class="nav-item" *ngIf="!userIsAuthenticated">
+      <a class="nav-link"routerLink="login" routerLinkActive="mat-accent">Login</a>
+    </li>
+    <li  class="nav-item" *ngIf="!userIsAuthenticated">
+      <a class="nav-link" routerLink="/signup" routerLinkActive="mat-accent">Signup</a>
+    </li>
+    <li  class="nav-item" *ngIf="userIsAuthenticated">
+      <button class="btn btn-danger" (click)="onLogout()">Logout</button>
+    </li>
+  </ul>
+</nav> -->
+<mat-toolbar color="primary">
+  <span>
+    <a routerLink="/">Home</a>
+  </span>
+  <span class="spacer"></span>
+  <ul>
+    <li *ngIf="!userIsAuthenticated">
+      <a mat-button routerLink="login" routerLinkActive="mat-accent">Login</a>
+    </li>
+    <li *ngIf="!userIsAuthenticated">
+      <a mat-button routerLink="signup" routerLinkActive="mat-accent">Signup</a>
+    </li>
+    <li *ngIf="userIsAuthenticated">
+      <button mat-button (click)="onLogout()">Logout</button>
+    </li>
+  </ul>
+</mat-toolbar>

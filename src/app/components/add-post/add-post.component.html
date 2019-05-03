@@ -1,7 +1,8 @@
 <section class="section">
+  <mat-card>
   <div class="container">
     <h1 class="title">Add a new Post</h1>
-    <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+    <form  class="example-form" [formGroup]="addForm" (ngSubmit)="onSubmit()">
       <div class="field">
         <label class="label">Title</label>
         <div class="control has-icons-left has-icons-right">
@@ -17,14 +18,15 @@
         <p class="help is-danger" *ngIf="submitted && f.text.errors">Text is required</p>
       </div>
       <div class="field">
-        <label class="label">Categories</label>
-        <div class="control has-icons-left has-icons-right">
-          <div class="select is-multiple" [ngClass]="{ 'is-danger': submitted && f.categories.errors }">
-            <select multiple formControlName="categories">
-              <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
-            </select>
-          </div>
-        </div>
+  
+        <mat-form-field>
+            <mat-label>Favorite categories</mat-label>
+            <mat-select multiple formControlName="categories" [ngClass]="{ 'is-danger': submitted && f.categories.errors }">
+              <mat-option *ngFor="let category of categories" [value]="category.id">
+                {{category.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
         <p class="help is-danger" *ngIf="submitted && f.categories.errors">Select at least one category</p>
       </div>
       <div class="container">
@@ -32,4 +34,5 @@
       </div>
     </form>
   </div>
+  </mat-card>
 </section>

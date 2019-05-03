@@ -5,7 +5,7 @@
       <th>Title</th>
       <th>Text</th>
       <th>Categories</th>
-      <th>Actions</th>
+      <th *ngIf="visible">Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -14,11 +14,13 @@
       <td>{{ post.title }}</td>
       <td>{{ post.text }}</td>
       <td>
-        <span class="tag is-info" *ngFor="let category of post.categories"><a class="tag-link">{{ category.name }} </a></span>
+        <mat-chip-list  *ngFor="let category of post.categories">
+        <mat-chip>{{ category.name }}</mat-chip>
+        </mat-chip-list>
       </td>
-      <td>
-        <a class="button is-primary is-outlined" (click)="editPost(post.id)">Edit</a>
-        <a class="button is-danger is-outlined" (click)="deletePost(post.id)">Delete</a>
+      <td *ngIf="visible">
+          <button mat-button color="primary" (click)="editPost(post.id)">Edit</button>
+          <button mat-button color="accent" (click)="deletePost(post.id)">Delete</button>
       </td>
     </tr>
   </tbody>

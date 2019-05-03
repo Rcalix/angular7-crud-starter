@@ -1,0 +1,19 @@
+<table class="table is-hoverable is-fullwidth">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th *ngIf="visible">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let category of categories">
+      <th>{{ category.id }}</th>
+      <td>{{ category.name }}</td>
+      <td *ngIf="visible">
+          <button mat-button color="primary" (click)="editPost(category.id)">Edit</button>
+          <button mat-button color="accent" (click)="deletePost(category.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

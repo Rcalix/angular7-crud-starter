@@ -1,6 +1,36 @@
-<section class="section">
-    <div class="container">
-        <a class="button is-success" routerLink="add-post">Add Post</a>
-    </div>
-</section>
-<app-posts-lists></app-posts-lists>
+<mat-tab-group *ngIf="!userIsAuthenticated">
+    <mat-tab label="List Of Categories">
+        <section class="hero is-light is-small  is-bold">
+        <mat-toolbar >Category</mat-toolbar>
+        </section>
+        <section class="section">
+            <div class="container">
+                <button mat-button   routerLink="add-category" color="primary" flex=35>Add Category</button>
+            </div>
+        </section>
+        <mat-card>
+            <app-category-lists></app-category-lists>
+        </mat-card>
+    </mat-tab>
+    <mat-tab label="List of Post"> 
+        <section class="hero is-light is-small  is-bold">
+        <mat-toolbar >Post</mat-toolbar>
+        </section>
+        <section  class="section">
+            <div class="container">
+                <button mat-button   routerLink="add-post" color="primary" flex=35>Add Post</button>
+            </div>
+        </section>
+        <mat-card>
+            <app-posts-lists></app-posts-lists>
+        </mat-card>
+    </mat-tab>
+    <mat-tab  label="List of Users"> 
+            <section class="hero is-light is-small  is-bold">
+            <mat-toolbar >User</mat-toolbar>
+            </section>
+            <mat-card>
+                <app-user-lists></app-user-lists>
+            </mat-card>
+        </mat-tab>
+</mat-tab-group>

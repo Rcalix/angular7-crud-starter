@@ -5,23 +5,27 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class CategoryService {
+export class UserService {
   apiUrl = environment.apiUrl;
 
   // inject the HttpClient as http so we can use it in this class
   constructor(private http: HttpClient) {}
 
   // return what comes back from this http call
-  getCategories() {
-    return this.http.get(`${this.apiUrl}/category`);
+  getUsers() {
+    return this.http.get(`${this.apiUrl}/users`);
   }
 
-  createCategory(data) {
-    return this.http.post(`${this.apiUrl}/category`, data);
+  getOneUser(userId) {
+    return this.http.get(`${this.apiUrl}/user/${userId}`);
   }
 
-  deletePost(id) {
-    return this.http.delete(`${this.apiUrl}/category/${id}`);
+  editUser(data) {
+    return this.http.put(`${this.apiUrl}/user/${data.id}`, data);
+  }
+
+  deleteUser(id) {
+    return this.http.delete(`${this.apiUrl}/user/${id}`);
 
   }
 }
