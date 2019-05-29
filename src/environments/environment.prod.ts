@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: ''
+  apiUrl: 'https://mysterious-anchorage-51757.herokuapp.com'
 };

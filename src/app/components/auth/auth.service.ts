@@ -1,4 +1,5 @@
 import { Injectable, ɵConsole } from "@angular/core";
+import { environment } from 'src/environments/environment';
 import { HttpClient } from "@angular/common/http";
 import { Router } from "@angular/router";
 import { Subject } from "rxjs";
@@ -15,7 +16,8 @@ export class AuthService {
   private role: string;
 
   constructor(private http: HttpClient, private router: Router) {}
-  
+  apiUrl = environment.apiUrl;
+
   getToken() {
     return this.token;
   }
@@ -40,7 +42,7 @@ export class AuthService {
   createUser(email: string, role: string,  password: string) {
     const authData: AuthData = { email: email, role: role, password: password };
     this.http
-      .post("http://localhost:3000/signup", authData)
+      .post(`${this.apiUrl}/signup`, authData)
       .subscribe(response => {
         this.router.navigate(["/login"]);
         console.log(response);
@@ -51,7 +53,7 @@ export class AuthService {
     const authData: AuthDataLogin = { email: email, password: password };
     this.http
       .post<{ token: string; expiresIn: number, userId: string, role:string }>(
-        "http://localhost:3000/login",
+        `${this.apiUrl}/login`,
         authData
       )
       .subscribe(response => {
