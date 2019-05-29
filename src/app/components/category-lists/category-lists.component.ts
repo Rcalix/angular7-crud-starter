@@ -25,9 +25,9 @@ export class CategoryListsComponent implements OnInit {
     this.visible = this.authService.getRole('Admin', 'Editor');
   }
 
-  // editPost(postId){
-  //   this.router.navigate(['/edit-post'], { queryParams: { postId: postId } });
-  // }
+  editPost(postId){
+    this.router.navigate(['/edit-post'], { queryParams: { postId: postId } });
+  }
 
   deletePost(categoryId){
     this.categoryService.deletePost(categoryId).subscribe( () => {
